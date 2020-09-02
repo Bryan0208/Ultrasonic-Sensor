@@ -64,4 +64,44 @@ Fin funcion setup
 
 /*
 Inicio funcion loop
+*/
+void loop()
+{
+  //Se define variale distancia como valor entero con dos decimales
+  float distancia = 0.01723 * readUltrasonicDistance(2, 2);
 
+//Condiciones para encendido de leds
+
+
+  if((distancia <= 336) && (distancia >= 200)) { //si la distancia es menor o igual a 336 cm y mayor o igual a 200 encienda pin 8
+    digitalWrite(8, HIGH);
+  } 
+  else { //si no se cumple la condicion anterior apague pin 8
+    digitalWrite(8, LOW); 
+  }
+  if((distancia < 200) && (distancia >= 100)) { //si la distancia es menor a 200 cm y mayor o igual a 100 encienda pin 7
+    digitalWrite(7, HIGH);
+  } 
+  else { //si no se cumple la condicion anterior apague pin 7
+    digitalWrite(7, LOW); 
+  }
+  if(distancia < 100) { //si la distancia es menor a 100 cm encienda pin 4
+    digitalWrite(4, HIGH);
+  } 
+  else { //si no se cumple la condicion anterior apague pin 4
+    digitalWrite(4, LOW); 
+  }
+  Serial.print("distancia: "); //funcion que arrojará en el monitor de serie la palabra "distancia"
+  Serial.println(distancia);   //función que arrojará al ladode la palabra distancia el número de la distancia real del punto
+
+  delay(10); // Delay a little bit to improve simulation performance
+}
+/*
+Inicio funcion loop
+*/
+
+/*
+ #######################
+ #   Fin de programa   #
+ #######################
+*/
