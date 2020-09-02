@@ -52,9 +52,10 @@ Inicio funcion setup
 */
 void setup()
 {
-  pinMode(8, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(2, OUTPUT);
+  Serial.begin(9600); //Se llama función serial para conectar monitor serial con ejecución del código a 9600 b
+  pinMode(8, OUTPUT); //se define pin 8 para LED VERDE como salida
+  pinMode(5, OUTPUT); //se define pin 8 para LED AMARILLO como salida
+  pinMode(2, OUTPUT); //se define pin 8 para LED ROJO como salida
 }
 /*
 Fin funcion setup
@@ -63,40 +64,4 @@ Fin funcion setup
 
 /*
 Inicio funcion loop
-*/
-void loop()
-{
-  int distancia = 0.01723 * readUltrasonicDistance(2, 2);
-
-  if((distancia <= 333) && (distancia >= 200)) {
-    digitalWrite(4, HIGH);
-  } 
-  else {
-    digitalWrite(4, LOW); 
-  }
-  if((distancia < 200) && (distancia >= 100)) {
-    digitalWrite(7, HIGH);
-  } 
-  else {
-    digitalWrite(7, LOW); 
-  }
-  if(distancia < 100) {
-    digitalWrite(8, HIGH);
-  } 
-  else {
-    digitalWrite(8, LOW); 
-  }
-   
-
-  delay(10); // Delay a little bit to improve simulation performance
-}
-/*
-Inicio funcion loop
-*/
-
-/*
- #######################
- #   Fin de programa   #
- #######################
-*/
 
